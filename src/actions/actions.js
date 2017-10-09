@@ -1,6 +1,10 @@
-import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, DELETING_DATA, INSERTING_DATA, INSERTING_DATA_SUCCESS, INSERTING_DATA_FAILURE, GET_NAME } from '../constants'
+import { FETCHING_DATA, FETCHING_DATA_SUCCESS, FETCHING_DATA_FAILURE, 
+DELETING_DATA, INSERTING_DATA, INSERTING_DATA_SUCCESS,
+ INSERTING_DATA_FAILURE, GET_NAME, NAVIGATE } from '../constants'
 
 import SQLiteProvider from '../providers/SQLiteProvider';
+
+import { NavigationActions } from 'react-navigation';
 var SQLiteObj = SQLiteProvider.getInstance();
 
 // FETCHING_DATA
@@ -66,5 +70,23 @@ export function deleteData(){
         })
       })
     })
+  }
+}
+
+export function NavigateWithBackdoor(){
+  console.log("navigating !");
+  return dispath =>{
+    dispath( NavigationActions.navigate({ routeName : 'Recording'}))
+  }
+}
+export function NavigateWithoutBackdoor(){
+  console.log("navigating !");
+  return dispath =>{
+    dispath( NavigationActions.reset({
+      index : 0,
+      actions : [
+        NavigationActions.navigate({ routeName : 'Recording'})
+      ]
+    }));
   }
 }

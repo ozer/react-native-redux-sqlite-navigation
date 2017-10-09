@@ -2,7 +2,7 @@ import React from 'react';
 import { TouchableHighlight, View, Text, StyleSheet, ListView } from 'react-native';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import * as acts from '../actions';
+import * as acts from '../actions/actions';
 
 let styles;
 class Names extends React.Component {
@@ -16,7 +16,7 @@ class Names extends React.Component {
         return (
             <View style={container}>
                 <Text>
-                    SELAM
+                    HEYOOOO
                 </Text>
                     <TouchableHighlight onPress={() => actions.fetchData()}>
                         <Text> Fetching </Text>
@@ -27,8 +27,12 @@ class Names extends React.Component {
                     <TouchableHighlight onPress={() => actions.deleteData()}>
                         <Text> Deleting </Text>
                     </TouchableHighlight>
-
-
+                    <TouchableHighlight onPress={() => actions.NavigateWithBackdoor() }>
+                        <Text> Navigate With Back Button at Left Upper Corner </Text>
+                    </TouchableHighlight>
+                    <TouchableHighlight onPress={() => actions.NavigateWithoutBackdoor() }>
+                        <Text> Navigate Without Back Button at Left Upper Corner </Text>
+                    </TouchableHighlight>
             </View>
         )
     }

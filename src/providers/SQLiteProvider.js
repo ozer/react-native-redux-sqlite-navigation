@@ -20,31 +20,7 @@ export default class SQLiteProvider {
   openCB(){
     console.log("Database OPENED!");
   }
-  /*
-  retrieveSQL(){
-    console.log("inside the retrieveSQL");
-    this.instance.transaction((tx)=>{
-      console.log("inside the retrieveSQL Transaction");
-      tx.executeSql('SELECT * FROM PEOPLE',[],(tx,results)=>{
-        var len = results.rows.length;
-        for(let i=0;i<len;i++){
-          let row = results.rows.item(i);
-          console.log(`Result is : ${row.NAME}`);
-        }
-      })
-    })
-  }
-  insertSQL(){
-    console.log("inside the insertSQL");
-    this.instance.transaction((tx)=>{
-      console.log("inside the insertSQL Transaction");
-      tx.executeSql('INSERT INTO PEOPLE (NAME) VALUES(?)',['OZER'],(tx,results)=>{
-        console.log(results);
-      })
-    })
 
-  }
-*/
 
 
 }

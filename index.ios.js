@@ -2,16 +2,13 @@ import React from 'react'
 import {
   AppRegistry
 } from 'react-native'
-
 import { Provider, connect} from 'react-redux'
-//import App from './src/App'
 import thunkMiddleware from 'redux-thunk'
 
-//import reducers from './src/reducers';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 
 import { addNavigationHelpers,StackNavigator } from 'react-navigation';
-//import RootContainer from './src/components/router';
+
 
 import Names from './src/components/names';
 import Record from './src/components/recordname';
@@ -32,7 +29,6 @@ const initialState = AppNavigator.router.getStateForAction(AppNavigator.router.g
 
 const navReducer = (state = initialState, action) => {
   const nextState = AppNavigator.router.getStateForAction(action, state);
-
   // Simply return the original `state` if `nextState` is null or undefined.
   return nextState || state;
 };
@@ -42,8 +38,6 @@ const AppReducer = combineReducers({
   SQLiteReducer : SQLiteReducer,
   nav : navReducer
 })
-
-
 
 const store = createStore(
   AppReducer,
@@ -66,8 +60,6 @@ const mapStateToProps = (state) => ({
 });
 
 const AppWithNavigationState = connect(mapStateToProps)(App);
-
-
 
 const ReduxOzer = () => (
   <Provider store={store}>
